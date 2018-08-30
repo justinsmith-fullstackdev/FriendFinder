@@ -1,334 +1,297 @@
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Friend-Finder-Survey</title>
+	<title>Friend Finder Pro</title>
 
-    <link rel="shortcut icon" type="image/png" href="favicon.png">
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Playfair+Display" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
+	<!-- Link to the jQuery Library -->
+  	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
-    <style>
-        body {
-            background-image: url("https://tse3.mm.bing.net/th?id=OIP.PJQ2uMABRn2xN0mxvAqudQHaEo&w=300&h=187&c=7&o=5&dpr=2&pid=1.7");
-            background-size: cover;
-            font-family: Merriweather;
-        }
-        #container {
-            margin: 40 65 40 90;
-        }
-        h3 {
-            font-size: 35;
-        }
-        h3,
-        h4,
-        hr,
-        label,
-        a {
-            color: navy;
-        }
-        #line-marker {
-            background-color: navy !important;
-            border: solid 1px navy !important;
-            width: 100% !important;
-            color: navy !important;
-        }
-        .form-control,
-        .custom-select-sm {
-            border-color: navy;
-            background-color: rgb(235, 243, 255);
-            color: navy;
-            margin-right: 25px;
-        }
-        select {
-            margin-bottom: 15px;
-        }
-        button {
-            background-color: navy;
-            color: rgb(235, 243, 255);
-            margin-right: 25px;
-        }
-        img {
-            margin-left: 32px;
-            width:400px;
-            height:280px;
-        }
-    </style>
+  	<!-- Including Font Awesome Icons -->
+  	<script src="https://use.fontawesome.com/b38c8ed4c7.js"></script>
 
+	<!-- Link to reset stylesheet -->
+	<link rel="stylesheet" href="css/reset.css">
+
+	<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- Compiled and minified Materialize CSS -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+	<!-- Compiled and minified Materialize JavaScript -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
+          
+	<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <div id="container">
+	<header>
+		<nav>
+			<div class="nav-wrapper pink accent-2">
+				<i class="fa fa-address-book-o fa-5x" aria-hidden="true" id=logo-icon></i>
+				<a href="/" class="brand-logo" id="logo">Friend Finder</a>
+				<ul class="right hide-on-med-and-down" id="head-nav-links">
+					<li><a href="/survey">Survey</a></li>
+					<li><a href="/api/friends">API Friends List</a></li>
+					<li><a href="https://github.com/angrbrd/friend-finder">GitHub Repo</a></li>
+				</ul>
+			</div>
+		</nav>
+	</header>
 
-        <h3 class="row">
-            <strong>Survey Questions</strong>
-        </h3>
+	<main>
+		<div class="container">
+			<div class="row">
+				<div class="col s12 z-depth-5 mainpanel">
+					<div id="mainpanel-content">
+						<h1>Survey Questions</h1>
+						<div class="divider"></div>
 
-        <hr class="row" id="line-marker">
+						<h3>About You</h3>
 
-        <h4 class="row">
-            <strong>About You</strong>
-        </h4>
+						<div class="input-field col s6">
+							<h5>Name (Required)</h5>
+							<i class="material-icons prefix">account_circle</i>
+							<input type="text" class="validate" placeholder="Your Name Here" id="userName">
+						</div>
 
-        <div class="form-group row">
-            <label for="name">Name (Required)</label>
-            <input type="name" class="form-control" placeholder="name" id="name" required>
-        </div>
-        <div class="form-group row">
-            <label for="photo">Link to Photo Image (Required)</label>
-            <input type="url" class="form-control" placeholder="https://yourPhoto.jpg" id="photo">
-        </div>
+						<div class="input-field col s6">
+							<h5>Link to Photo Image (Required)</h5>
+							<i class="material-icons prefix">picture_in_picture</i>
+							<input type="text" class="validate" placeholder="Photo Link Here" id="userPhoto">
+						</div>
 
-        <hr class="row" id="line-marker">
-        <form>
-            <h4 class="row">
-                <strong>Question 1</strong>
-            </h4>
-            <label for="sel1" class="row">You are open to new experiences.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question1">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<!-- Survey Questions -->
+						<div class="input-field col s12">
+							<h3>Question 1</h3>
+							<h5>Your mind is always buzzing with unexplored ideas and plans.</h5>
+							<select id="question1">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 2</strong>
-            </h4>
-            <label for="sel1" class="row">You are generally happy and up-beat.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question2">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 2</h3>
+							<h5>Generally speaking, you rely more on your experience than your imagination.</h5>
+							<select id="question2">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 3</strong>
-            </h4>
-            <label for="sel1" class="row">Your mind is always buzzing with unexplored ideas and plans.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question3">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 3</h3>
+							<h5>You find it easy to stay relaxed and focused even when there is some pressure.</h5>
+							<select id="question3">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 4</strong>
-            </h4>
-            <label for="sel1" class="row">Presentation is as important as content.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question4">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 4</h3>
+							<h5>You rarely do something just out of sheer curiosity.</h5>
+							<select id="question4">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 5</strong>
-            </h4>
-            <label for="sel1" class="row">Everyone is entitled to their own opinion.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question5">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 5</h3>
+							<h5>People can rarely upset you.</h5>
+							<select id="question5">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 6</strong>
-            </h4>
-            <label for="sel1" class="row">You find it easy to stay relaxed and focused even when there is some pressure.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question6">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 6</h3>
+							<h5>It is often difficult for you to relate to other people’s feelings.</h5>
+							<select id="question6">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 7</strong>
-            </h4>
-            <label for="sel1" class="row">You rarely get carried away by fantasies and ideas.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question7">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 7</h3>
+							<h5>In a discussion, truth should be more important than people’s sensitivities.</h5>
+							<select id="question7">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 8</strong>
-            </h4>
-            <label for="sel1" class="row">You feel more energetic after spending time with a group of people.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question8">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 8</h3>
+							<h5>You rarely get carried away by fantasies and ideas.</h5>
+							<select id="question8">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 9</strong>
-            </h4>
-            <label for="sel1" class="row">It is often difficult for you to relate to other people’s feelings.</label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question9">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
+						<div class="input-field col s12">
+							<h3>Question 9</h3>
+							<h5>You think that everyone’s views should be respected regardless of whether they are supported by facts or not.</h5>
+							<select id="question9">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-            <h4 class="row">
-                <strong>Question 10</strong>
-            </h4>
-            <label for="sel1" class="row">In a discussion, truth should be more important than people’s sensitivities.
-            </label>
-            <div class="form-group row">
-                <div class="col-xs-3">
-                    <select class="custom-select-sm" id="question10">
-                        <option selected>Select an Option</option>
-                        <option value="1">1 (Strongly Disagree)</option>
-                        <option value="2">2</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
-                        <option value="5">5 (Strongly Agree)</option>
-                    </select>
-                </div>
-            </div>
-        </form>
+						<div class="input-field col s12">
+							<h3>Question 10</h3>
+							<h5>You feel more energetic after spending time with a group of people.</h5>
+							<select id="question10">
+								<option value="" disabled selected>Choose your option</option>
+								<option value="1">1 (Strongly Disagree)</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5 (Strongly Agree)</option>
+							</select>
+						</div>
 
-        <div class="row">
-            <button type="submit" class="btn btn-lg btn-block" id="submit">
-                Submit</button>
-        </div>
+						<!-- Survey Submit Button -->
+						<div>
+							<button class="btn waves-effect waves-light" type="submit" name="action" id="submitButton">Submit Responses
+								<i class="material-icons right">send</i>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
 
-        <div id="links">
-            <hr class="row" id="line-marker">
-            <a href="/api/friends">API Friends List </a>
-            |
-            <a href="https://github.com/pmactavish13/Friend-Finder"> GitHub Repo</a>
+	<footer class="page-footer pink accent-2">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">Friend Finder App</h5>
+					<p class="grey-text text-lighten-4">Thank you for taking the brief survey. Your responses will be used for training purposes only :-].</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="/api/friends">API Friends List</a></li>
+						<li><a class="grey-text text-lighten-3" href="https://github.com/angrbrd/friend-finder">GitHub Repo</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© 2017 angrbrd entertainment
+				<a class="grey-text text-lighten-4 right" href="https://github.com/angrbrd">Reference Work</a>
+			</div>
+		</div>
+	</footer>
 
-        </div>
-    </div>
+	<!-- Modal Dialog Displaying Closest Friend Match -->
+	<div id="modal1" class="modal">
+		<div class="modal-content">
+			<h4>Closest Friend Match</h4>
+			<div class="divider"></div>
+			<h5 id="userMatch"></h5>
+			<img id="userMatchImage" class="materialboxed" width="650" src="">
+		</div>
+		<div class="modal-footer">
+			<a href="/survey" class="modal-action modal-close waves-effect waves-green btn-flat">Fill Again!</a>
+		</div>
+	</div>
 
-    <div class="modal" id="resultsModal" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h3 class="modal-title">Best Match</h3>
-                    <button type="button" class="close" onclick="location.reload()" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    
-                </div>
-                <div class="modal-body">
-                    <h3 id="matchName"></h3>
-                    <img id="matchImg" src="http://via.placeholder.com/350x250" alt="">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" onclick="location.reload()" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('select').material_select();
+
+			$('.modal').modal({
+				dismissible: false, // Modal can be dismissed by clicking outside of the modal
+				opacity: .5, // Opacity of modal background
+				inDuration: 300, // Transition in duration
+				outDuration: 200, // Transition out duration
+				startingTop: '4%', // Starting top style attribute
+				endingTop: '10%' // Ending top style attribute
+			});
+		});
+
+		// Activate submit button
+		$('#submitButton').on('click', function(event) {
+			event.preventDefault();
+
+			// Gather user inputs
+			var userInput = {
+				name: $('#userName').val().trim(),
+				photo: $('#userPhoto').val().trim(),
+				scores:[
+					$('#question1').val().trim(),
+					$('#question2').val().trim(),
+					$('#question3').val().trim(),
+					$('#question4').val().trim(),
+					$('#question5').val().trim(),
+					$('#question6').val().trim(),
+					$('#question7').val().trim(),
+					$('#question8').val().trim(),
+					$('#question9').val().trim(),
+					$('#question10').val().trim()
+				]
+			};
+
+			// console.log('userInput = ' + JSON.stringify(userInput));
+
+			// Add user inputs to friends list
+			$.post('/api/friends', userInput)
+      		.done(function(data) {
+      			// console.log('response = ' + JSON.stringify(data));
+
+      			// Set the name and image values of friend match
+      			$('#userMatch').html(data.matchName);
+		    	$("#userMatchImage").attr("src", data.matchImage);
+
+		    	// Pop open the modal dialog
+      			$('#modal1').modal('open');
+      		});
+		});
+	</script>
 </body>
-
-<script>
-    $("#submit").on("click", function (event) {
-        event.preventDefault();
-        // check that input is valid
-        for (var i = 1; i < 11; i++) {
-            if ($.trim($("#question" + [i]).val()) === "" || $("#question" + [i]).val().trim() === "Select an Option") {
-                alert("Please fill out all fields before submitting!");
-                return false;
-            };
-        };
-        if ($.trim($("#name").val()) === "" || $.trim($("#name").val()) === "name") {
-            alert("Please fill out all fields before submitting!");
-            $("#name").val("Enter a valid name");
-            return false;
-        } else if ($.trim($("#photo").val()) === "" || $.trim($("#url").val()) === "photo") {
-            $("#photo").val("Enter a valid url address");
-            alert("Please fill out all fields before submitting!");
-            return false;
-        } else {
-            var newFriend = {
-                name: $("#name").val().trim(),
-                photo: $("#photo").val().trim(),
-                scores: [$("#question1").val(), $("#question2").val(), $("#question3").val(), $("#question4").val(), $("#question5").val(), $("#question6").val(), $("#question7").val(), $("#question8").val(), $("#question9").val(), $("#question10").val()]
-            };
-            
-            var currentURL = window.location.origin;
-            $.post("/api/friends", newFriend, function (data) {
-                $("#matchName").text(data.name);
-                $("#matchImg").attr("src", data.photo);
-                // Show the modal with the best match 
-                $("#resultsModal").modal("toggle");
-            });
-        };
-    });
-</script>
-
 </html>
